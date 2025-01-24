@@ -1,3 +1,27 @@
+# ENHANCEMENTS
+
+ Agent to summarize - writer agent
+ Agent to - research Q&A agent
+ 
+ create workflow diagram to visually explain how things work - Business Analyst agent
+
+ References to the resource for where it found the summary or answer (with a link   
+ ) - Reviewer ensures this is accurate
+ 
+ editor reviews and refines content
+
+ structured output - publisher agent?
+
+ - Internal Knowledge
+
+ - External knowledge -adding
+
+Note: llama index and langchain can index multiple files
+
+As POC and demonstrations - streamlit is a good front end
+
+
+
 # **GPT 3.5/4/4o-mini Powered Document Summarizer**
 
 This is a tool that takes a text document (PDF or TXT) or YouTube transcript and generates a concise summary using GPT-4O-Mini, GPT-4 or GPT-3.5-turbo. It can accurately summarize hundreds of pages of text. It's built with Python and Streamlit and leverages the langchain library for text processing.
