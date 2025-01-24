@@ -15,38 +15,26 @@ class ClusteredSummary(Magician):
     MAX_THREADS = 4
 
     SUMMARIZE_CHUNK_SYSTEM_MESSAGE = """
-    Please provide a comprehensive, thoughtful, and cohesive personal brand statement and unique value proposition using the %s, 
-    do not use "I" statements.
-    Additionally, with these crafted statements and the %s, provide the candidate with 10 LinkedIn posts that the candidate should 
-    post to engage their audience (leaders and colleagues in their line of work and industry), these posts should be 
-    thought-provoking and engage the candidate's professional community. Include a strong hook, clear content, call to
-    action, and relevant hashtags. Use storytelling and address the audience's interests and challenges. Vary post 
-    types among questions, statements, facts, and polls.  Do not include emoticons, emojis, or icons in the statements or posts.
-    """
+    You will be given a single section from a %s. This will be enclosed in triple backticks.
+    Please provide a comprehensive and cohesive summary of the excerpt, focusing on the key points and main ideas, while maintaining clarity and conciseness."""
 
     SUMMARIZE_ALL_CHUNKS_SYSTEM_MESSAGE = """
-    You will be given a complete %s. It will be enclosed in triple backticks.
-    Please provide a comprehensive, thoughtful, and cohesive personal brand statement and unique value proposition using the %s, 
-    do not use "I" statements.
-    Additionally, with these crafted statements and the %s, provide the candidate with 10 LinkedIn posts that the candidate should 
-    post to engage their audience (leaders and colleagues in their line of work and industry), these posts should be 
-    thought-provoking and engage the candidate's professional community. Include a strong hook, clear content, call to
-    action, and relevant hashtags. Use storytelling and address the audience's interests and challenges. Vary post 
-    types among questions, statements, facts, and polls.  Do not include emoticons, emojis, or icons in the statements or posts.
-
-    Format these statements in HTML. It should be structured as follows:
-
-    - Personal Brand Statement.
-    - Unique Value Proposition.
-    - The suggested LinkedIn posts.
+    You will be given a list of summaries from a %s. They will be enclosed in triple backticks.
+    Please provide a cohesive summary of the %s, focusing on the key points and main ideas, while maintaining clarity and conciseness.
+    
+    Format your summary in HTML. It should be structured as follows:
+    
+    - A short, bullet form list of key takeaways.
+    - A well-formatted easy-to-read synopsis, structured like an essay that summarizes the document cohesively.
+    - A conclusion that ties all the ideas together.
     
     Format for maximum readability and clarity.
     """
 
-    def __init__(self, text: str):
+    def __init__(self, text: str, media_type: str):
         super().__init__()
         self.text = text
-        self.media_type = "documents"
+        self.media_type = media_type
 
     def get_summary(self) -> str:
         text_chunks = self.chunk_text()
