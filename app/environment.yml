@@ -1,6 +1,7 @@
 name: doc_insight
 channels:
   - conda-forge
+  - defaults
 dependencies:
   - python
   - pip
